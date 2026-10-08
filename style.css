@@ -36,6 +36,11 @@ main {
   background-color: var(--grey-800);
 }
 
+#avatar {
+  width: 90px;
+  border-radius: 50%;
+}
+
 p {
   font-size: var(--p-font-size);
 }
