@@ -17,6 +17,10 @@
   --p-font-size: 0.875rem;
 }
 
+body {
+  background-color: var(--grey-900);
+}
+
 p {
   font-size: var(--p-font-size);
 }
