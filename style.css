@@ -8,6 +8,18 @@
   margin: 0;
 }
 
+:root {
+  --green: hsl(75, 94%, 57%);
+  --white: hsl(0, 0%, 100%);
+  --grey-700: hsl(0, 0%, 20%);
+  --grey-800: hsl(0, 0%, 12%);
+  --grey-900: hsl(0, 0%, 8%);
+  --p-font-size: 0.875rem;
+}
+
+p {
+  font-size: var(--p-font-size);
+}
 .attribution {
   font-size: 0.6875rem;
   text-align: center;
