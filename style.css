@@ -21,8 +21,16 @@ body {
   background-color: var(--grey-900);
 }
 
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .card {
   background-color: var(--grey-800);
+  max-width: 326px;
+  padding: 24px;
 }
 
 p {
