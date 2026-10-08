@@ -21,6 +21,10 @@ body {
   background-color: var(--grey-900);
 }
 
+.card {
+  background-color: var(--grey-800);
+}
+
 p {
   font-size: var(--p-font-size);
 }
