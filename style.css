@@ -75,6 +75,7 @@ p {
 }
 
 .social-link {
+  background-color: var(--grey-700);
   color: var(--white);
   font-size: 0.875rem;
   font-weight: 700;
