@@ -68,12 +68,20 @@ p {
   font-weight: 400;
 }
 
+.links {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+}
+
 .social-link {
   color: var(--white);
   font-size: 0.875rem;
   font-weight: 700;
   text-decoration: none;
+  text-align: center;
 }
+
 .attribution {
   font-size: 0.6875rem;
   text-align: center;
