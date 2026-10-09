@@ -20,6 +20,7 @@
 @font-face {
   font-family: "Inter";
   src: url(./assets/fonts/Inter-VariableFont_slnt\,wght.ttf);
+  font-weight: 400 600 700;
 }
 
 body {
@@ -47,12 +48,36 @@ main {
   border-radius: 50%;
 }
 
+.name {
+  color: var(--white);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
 p {
   font-size: var(--p-font-size);
+  font-weight: 600;
+}
+
+.location {
+  color: var(--green);
+}
+
+.intro {
+  color: var(--white);
+  font-weight: 400;
+}
+
+.social-link {
+  color: var(--white);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-decoration: none;
 }
 .attribution {
   font-size: 0.6875rem;
   text-align: center;
+  color: var(--white);
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
