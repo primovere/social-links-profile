@@ -38,8 +38,9 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 326px;
-  padding: 24px;
+  width: 87%;
+  max-width: 384px;
+  padding: clamp(24px, 6.5vw, 40px);
   background-color: var(--grey-800);
 }
 
