@@ -17,8 +17,14 @@
   --p-font-size: 0.875rem;
 }
 
+@font-face {
+  font-family: "Inter";
+  src: url(./assets/fonts/Inter-VariableFont_slnt\,wght.ttf);
+}
+
 body {
   background-color: var(--grey-900);
+  font-family: "Inter", sans-serif;
 }
 
 main {
