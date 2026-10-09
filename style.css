@@ -72,6 +72,7 @@ p {
   display: flex;
   flex-direction: column;
   align-self: stretch;
+  gap: 15px;
 }
 
 .social-link {
