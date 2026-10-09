@@ -97,6 +97,12 @@ p {
   cursor: pointer;
 }
 
+.social-link:focus-visible {
+  background-color: var(--green);
+  color: var(--grey-800);
+  outline: none;
+}
+
 .attribution {
   font-size: 0.6875rem;
   text-align: center;
