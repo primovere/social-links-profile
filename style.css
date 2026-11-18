@@ -24,11 +24,15 @@
 }
 
 body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   background-color: var(--grey-900);
   font-family: "Inter", sans-serif;
 }
 
 main {
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
