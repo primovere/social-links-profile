@@ -90,7 +90,7 @@ p {
   border-radius: 10px;
   background-color: var(--grey-700);
   color: var(--white);
-  font-size: 0.875rem;
+  font-size: var(--p-font-size);
   font-weight: 700;
   text-decoration: none;
   text-align: center;
