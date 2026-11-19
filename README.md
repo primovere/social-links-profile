@@ -28,8 +28,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Social links profile solution page](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Social links profile solution page](https://www.frontendmentor.io/solutions/responsive-social-link-file-using-flexbox-kcYTOkr7lo)
+- Live Site URL: [Live site](https://primovere.github.io/social-links-profile/)
 
 ## My process
 
