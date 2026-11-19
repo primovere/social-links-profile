@@ -45,6 +45,7 @@ main {
   width: 87%;
   max-width: 384px;
   padding: clamp(24px, 6.5vw, 40px);
+  border-radius: 4%;
   background-color: var(--grey-800);
 }
 
