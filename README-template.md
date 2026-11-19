@@ -1,6 +1,6 @@
 # Frontend Mentor - Social links profile solution
 
-This is a solution to the [Social links profile challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/social-links-profile-UG32l9m6dQ). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution to the [Social links profile challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/social-links-profile-UG32l9m6dQ).
 
 ## Table of contents
 
@@ -11,13 +11,7 @@ This is a solution to the [Social links profile challenge on Frontend Mentor](ht
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
-  - [AI Collaboration](#ai-collaboration)
-- [Author](#author)
-- [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -29,19 +23,12 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![Mobile version](./screenshots/social-links-profile-mobile.png)
+![Desktop version](./screenshots/social-links-profile-desktop.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [Social links profile solution page](https://your-solution-url.com)
 - Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
 ## My process
@@ -51,71 +38,103 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
-- CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+#### HTML
 
-To see how you can add code snippets, see below:
+- Ask "Is it a chapter title?" before choosing a heading element. Use `<h1>` for the page title and `<p>` for ordinary lines of text.
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
+#### CSS reset
+
+- `*` means "every element in the HTML".
+- `::before` and `::after` are pseudo-elements: extra pieces CSS can attach to an element. `*` doesn't match them, so they are listed separately.
+- `box-sizing: border-box` makes padding and border count inside the width and height, so there is no confusion about element size.
+
 ```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+#### Variables and fonts
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+- `:root` means "the very top element of the page", which is `html`.
+- `:root` signals that these are global values, and its specificity is higher than `html`.
+- Fonts are inherited, so set `font-family` once on `body`.
+- Careful with `font-size` on `html` or `:root`: it changes what `1rem` means for the whole page.
 
-### Continued development
+#### Box model and sizing
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+- Font size changes how tall the card ends up, but it doesn't change the padding. The two don't depend on each other.
+- Don't set a fixed `height` on the card. Its height comes from its content plus its padding.
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+#### Circle avatar
+
+- `border-radius: 999px` works because the browser caps the rounding at the biggest curve that fits.
+- `border-radius: 50%` means "round the corners by half the box's width and height". On a square this gives a circle; on a non-square box it gives an ellipse (while `999px` gives a pill shape).
+
+#### Links
+
+- Make the links container stretch to the card's content edges, and center the text inside each button.
+
+```css
+.links {
+  align-self: stretch;
+}
+
+.social-link {
+  text-align: center;
+}
+```
+
+- To check `:hover` in DevTools device mode, choose "mobile (no touch)". Touch emulation treats the mouse like a finger, so the hover effect only appears after clicking.
+
+#### Responsive card
+
+- `width` asks for a size; `max-width` only sets a ceiling. `clamp(min, preferred, max)` lets a value change smoothly between two limits.
+
+```css
+.card {
+  width: 87%;
+  max-width: 384px;
+  padding: clamp(24px, 6.5vw, 40px);
+}
+```
+
+- A `clamp()` on the links' left and right padding changed nothing visible, because the links are already stretched and their text is centered.
+
+#### Page layout (footer at the bottom, card centered)
+
+- `min-height: 100vh` on `body` means "at least as tall as the viewport", but it doesn't limit the maximum height. If the content is taller than the viewport, `body` grows with it and the page scrolls.
+- `flex: 1` on `main` gives it the leftover space. It doesn't force the card to shrink.
+- `flex-shrink: 1` allows shrinking, but a flex item still can't go below its minimum content size.
+- Flex items default to `min-height: auto` (in a column container).
+
+```css
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+```
+
+#### DevTools tips
+
+- `scrollHeight` shows the height the content actually needs.
+- `innerHeight` shows the height of the current layout viewport.
+- (To verify) In device mode, the Scale setting may change the viewport height DevTools reports. I should test this myself before keeping it.
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
-
-### AI Collaboration
-
-Describe how you used AI tools (if any) during this project. This helps demonstrate your ability to work effectively with AI assistants.
-
-- What tools did you use (e.g., ChatGPT, Claude, GitHub Copilot)?
-- How did you use them (e.g., debugging, generating boilerplate, brainstorming solutions)?
-- What worked well? What didn't?
-
-**Note: Delete this note and the content above if you didn't use AI, or replace with your own experience.**
-
-## Author
-
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+- [An Interactive Guide to Flexbox](https://www.joshwcomeau.com/css/interactive-guide-to-flexbox/) - This helped me understand flexbox better.

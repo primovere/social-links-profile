@@ -1,106 +1,140 @@
-# Frontend Mentor - Social links profile
+# Frontend Mentor - Social links profile solution
 
-![Design preview for the Social links profile coding challenge](./preview.jpg)
+This is a solution to the [Social links profile challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/social-links-profile-UG32l9m6dQ).
 
-## Welcome! 👋
+## Table of contents
 
-Thanks for checking out this front-end coding challenge.
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Useful resources](#useful-resources)
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+## Overview
 
-**To do this challenge, you need a basic understanding of HTML and CSS.**
+### The challenge
 
-## The challenge
-
-Your challenge is to build out this social links profile and get it looking as close to the design as possible.
-
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
-
-Your users should be able to: 
+Users should be able to:
 
 - See hover and focus states for all interactive elements on the page
 
-### Want some support on the challenge? 
+### Screenshot
 
-[Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
+![Mobile version](./screenshots/social-links-profile-mobile.png)
+![Desktop version](./screenshots/social-links-profile-desktop.png)
 
-## Where to find everything
+### Links
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design. 
+- Solution URL: [Social links profile solution page](https://your-solution-url.com)
+- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. 
+## My process
 
-If you would like the Figma design file to gain experience using professional tools and build more accurate projects faster, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+### Built with
 
-All the required assets for this project are in the `/assets` folder. The images are already exported for the correct screen size and optimized.
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- Mobile-first workflow
 
-We also include variable and static font files for the required fonts for this project. You can choose to either link to Google Fonts or use the local font files to host the fonts yourself. Note that we've removed the static font files for the font weights that aren't needed for this project.
+### What I learned
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+#### HTML
 
-## Using AI coding assistants
+- Ask "Is it a chapter title?" before choosing a heading element. Use `<h1>` for the page title and `<p>` for ordinary lines of text.
 
-We've included two files to help you if you're using AI coding assistants (like Claude, GitHub Copilot, Cursor, etc.) while working on this challenge:
+#### CSS reset
 
-- `AGENTS.md` - Contains detailed instructions for AI assistants on how to help you with this challenge. It's tailored to this challenge's difficulty level, so the AI will provide guidance appropriate to your learning stage—offering more support for beginner challenges and encouraging more independence on advanced ones.
-- `CLAUDE.md` - A pointer file that directs Claude-based tools to the AGENTS.md instructions.
+- `*` means "every element in the HTML".
+- `::before` and `::after` are pseudo-elements: extra pieces CSS can attach to an element. `*` doesn't match them, so they are listed separately.
+- `box-sizing: border-box` makes padding and border count inside the width and height, so there is no confusion about element size.
 
-**How to use them:** You don't need to do anything! These files are automatically detected by most AI coding tools. The AI will read them and adjust its behavior to be a better learning partner—guiding you toward solutions rather than just giving you the answers.
+```css
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+```
 
-**Note:** These files are designed to help you *learn*, not to do the work for you. The AI is instructed to ask questions, give hints, and explain concepts rather than writing complete solutions.
+#### Variables and fonts
 
-## Building your project
+- `:root` means "the very top element of the page", which is `html`.
+- `:root` signals that these are global values, and its specificity is higher than `html`.
+- Fonts are inherited, so set `font-family` once on `body`.
+- Careful with `font-size` on `html` or `:root`: it changes what `1rem` means for the whole page.
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+#### Box model and sizing
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+- Font size changes how tall the card ends up, but it doesn't change the padding. The two don't depend on each other.
+- Don't set a fixed `height` on the card. Its height comes from its content plus its padding.
 
-## Deploying your project
+#### Circle avatar
 
-As mentioned above, there are many ways to host your project for free. Our recommended hosts are:
+- `border-radius: 999px` works because the browser caps the rounding at the biggest curve that fits.
+- `border-radius: 50%` means "round the corners by half the box's width and height". On a square this gives a circle; on a non-square box it gives an ellipse (while `999px` gives a pill shape).
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+#### Links
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://www.frontendmentor.io/guides/hosting-your-solution).
+- Make the links container stretch to the card's content edges, and center the text inside each button.
 
-## Create a custom `README.md`
+```css
+.links {
+  align-self: stretch;
+}
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+.social-link {
+  text-align: center;
+}
+```
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+- To check `:hover` in DevTools device mode, choose "mobile (no touch)". Touch emulation treats the mouse like a finger, so the hover effect only appears after clicking.
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+#### Responsive card
 
-## Submitting your solution
+- `width` asks for a size; `max-width` only sets a ceiling. `clamp(min, preferred, max)` lets a value change smoothly between two limits.
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://www.frontendmentor.io/guides/how-to-submit-solutions) for tips on how to do this.
+```css
+.card {
+  width: 87%;
+  max-width: 384px;
+  padding: clamp(24px, 6.5vw, 40px);
+}
+```
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
+- A `clamp()` on the links' left and right padding changed nothing visible, because the links are already stretched and their text is centered.
 
-## Sharing your solution
+#### Page layout (footer at the bottom, card centered)
 
-There are multiple places you can share your solution:
+- `min-height: 100vh` on `body` means "at least as tall as the viewport", but it doesn't limit the maximum height. If the content is taller than the viewport, `body` grows with it and the page scrolls.
+- `flex: 1` on `main` gives it the leftover space. It doesn't force the card to shrink.
+- `flex-shrink: 1` allows shrinking, but a flex item still can't go below its minimum content size.
+- Flex items default to `min-height: auto` (in a column container).
 
-1. Share your solution page in the **#finished-projects** channel of our [community](https://www.frontendmentor.io/community). 
-2. Share on [X (formerly Twitter)](https://x.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in your post. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on [LinkedIn](https://www.linkedin.com/company/frontend-mentor/).
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
+```css
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+```
 
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
+#### DevTools tips
 
-## Got feedback for us?
+- `scrollHeight` shows the height the content actually needs.
+- `innerHeight` shows the height of the current layout viewport.
+- (To verify) In device mode, the Scale setting may change the viewport height DevTools reports. I should test this myself before keeping it.
 
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
+### Useful resources
 
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
-
-**Have fun building!** 🚀
+- [An Interactive Guide to Flexbox](https://www.joshwcomeau.com/css/interactive-guide-to-flexbox/) - This helped me understand flexbox better.
